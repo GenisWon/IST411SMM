@@ -19,7 +19,7 @@ public class landing extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(landing.this, SignUpActivity.class));
+                startActivity(new Intent(landing.this, AccountView.class));
             }
         });
 
