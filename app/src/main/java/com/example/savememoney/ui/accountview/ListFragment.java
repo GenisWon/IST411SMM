@@ -11,10 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.savememoney.R;
-import com.example.savememoney.ui.accountview.dummy.DummyContent;
-import com.example.savememoney.ui.accountview.dummy.DummyContent.DummyItem;
-
-import java.util.List;
+import com.example.savememoney.ui.accountview.Accounts.AccountContent;
+import com.example.savememoney.ui.accountview.Accounts.AccountContent.AccountItem;
 
 /**
  * A fragment representing a list of Items.
@@ -70,7 +68,7 @@ public class ListFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(AccountContent.AccountList, mListener));
         }
         return view;
     }
@@ -104,7 +102,6 @@ public class ListFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(AccountItem item);
     }
 }
