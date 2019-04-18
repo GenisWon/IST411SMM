@@ -1,4 +1,4 @@
-package com.example.savememoney.ui.accountview.dummy;
+package com.example.savememoney.ui.accountview.Accounts;
 
 import java.util.ArrayList;
 import java.util.HashMap;
