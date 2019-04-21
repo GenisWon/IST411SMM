@@ -8,11 +8,17 @@
     tools:context=".AccountView">
 
 
-    <fragment
+    <!--<fragment
         android:id="@+id/fragment1"
         android:name="com.example.savememoney.ui.accountview.ListFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" />-->
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/navigation" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
