@@ -10,15 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.savememoney.dummy.DummyContent;
-import com.example.savememoney.dummy.DummyContent.DummyItem;
-
-import java.util.List;
+import com.example.savememoney.ui.reportfragment.MyReportRecyclerViewAdapter;
+import com.example.savememoney.ui.reportfragment.ReportContent;
 
 /**
  * A fragment representing a list of Items.
  * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
+ * Activities containing this fragment MUST implement the {@link OnReportFragmentInteractionListener}
  * interface.
  */
 public class ReportFragment extends Fragment {
@@ -27,7 +25,7 @@ public class ReportFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-    private OnListFragmentInteractionListener mListener;
+    private OnReportFragmentInteractionListener mListener;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -69,7 +67,7 @@ public class ReportFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyReportRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyReportRecyclerViewAdapter(ReportContent.ReportList, mListener));
         }
         return view;
     }
@@ -78,8 +76,8 @@ public class ReportFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
+        if (context instanceof OnReportFragmentInteractionListener) {
+            mListener = (OnReportFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnListFragmentInteractionListener");
@@ -102,8 +100,8 @@ public class ReportFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnListFragmentInteractionListener {
+    public interface OnReportFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onReportFragmentInteraction(ReportContent.ReportItem item);
     }
 }
