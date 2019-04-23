@@ -15,6 +15,15 @@
         android:theme="@style/AppTheme">
         <activity android:name=".AccountView" />
         <activity
+            android:name=".Reports"
+            android:label="@string/title_activity_reports">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".SignUpActivity"
             android:label="@string/title_activity_sign_up" />
         <activity
@@ -23,11 +32,6 @@
         <activity
             android:name=".landing"
             android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
