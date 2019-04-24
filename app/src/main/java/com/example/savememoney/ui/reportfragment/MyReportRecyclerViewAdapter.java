@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.savememoney.R;
 import com.example.savememoney.ReportFragment.OnReportFragmentInteractionListener;
+import com.jjoe64.graphview.GraphView;
 
 import java.util.List;
 
@@ -38,6 +39,7 @@ public class MyReportRecyclerViewAdapter extends RecyclerView.Adapter<MyReportRe
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).strTitle);
         holder.mContentView.setText(Double.toString(mValues.get(position).dblBalance));
+        holder.graph.addSeries(mValues.get(position).series);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +62,7 @@ public class MyReportRecyclerViewAdapter extends RecyclerView.Adapter<MyReportRe
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
+        public final GraphView graph;
         public ReportContent.ReportItem mItem;
 
         public ViewHolder(View view) {
@@ -67,6 +70,7 @@ public class MyReportRecyclerViewAdapter extends RecyclerView.Adapter<MyReportRe
             mView = view;
             mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
+            graph = view.findViewById(R.id.card_graph);
         }
 
         @Override
