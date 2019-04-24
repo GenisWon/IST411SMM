@@ -10,15 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.savememoney.dummy.DummyContent;
-import com.example.savememoney.dummy.DummyContent.DummyItem;
-
-import java.util.List;
+import com.example.savememoney.ui.budgetfragment.BudgetContent;
+import com.example.savememoney.ui.budgetfragment.MyBudgetRecyclerViewAdapter;
 
 /**
  * A fragment representing a list of Items.
  * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
+ * Activities containing this fragment MUST implement the {@link OnBudgetFragmentInteractionListener}
  * interface.
  */
 public class BudgetFragment extends Fragment {
@@ -27,7 +25,7 @@ public class BudgetFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-    private OnListFragmentInteractionListener mListener;
+    private OnBudgetFragmentInteractionListener mListener;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -69,7 +67,7 @@ public class BudgetFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyBudgetRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyBudgetRecyclerViewAdapter(BudgetContent.BudgetList, mListener));
         }
         return view;
     }
@@ -78,11 +76,11 @@ public class BudgetFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
+        if (context instanceof OnBudgetFragmentInteractionListener) {
+            mListener = (OnBudgetFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
+                    + " must implement OnBudgetFragmentInteractionListener");
         }
     }
 
@@ -102,8 +100,8 @@ public class BudgetFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnListFragmentInteractionListener {
+    public interface OnBudgetFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void OnBudgetFragmentInteractionListener(BudgetContent.BudgetItem item);
     }
 }

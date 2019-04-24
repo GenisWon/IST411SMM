@@ -1,4 +1,4 @@
-package com.example.savememoney;
+package com.example.savememoney.ui.reportfragment;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,22 +6,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.savememoney.ReportFragment.OnListFragmentInteractionListener;
-import com.example.savememoney.dummy.DummyContent.DummyItem;
+import com.example.savememoney.R;
+import com.example.savememoney.ReportFragment.OnReportFragmentInteractionListener;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
+ * {@link RecyclerView.Adapter} that can display a {@link com.example.savememoney.ui.reportfragment.ReportContent.ReportItem} and makes a call to the
+ * specified {@link OnReportFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
 public class MyReportRecyclerViewAdapter extends RecyclerView.Adapter<MyReportRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
-    private final OnListFragmentInteractionListener mListener;
+    private final List<ReportContent.ReportItem> mValues;
+    private final OnReportFragmentInteractionListener mListener;
 
-    public MyReportRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyReportRecyclerViewAdapter(List<ReportContent.ReportItem> items, OnReportFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -36,8 +36,8 @@ public class MyReportRecyclerViewAdapter extends RecyclerView.Adapter<MyReportRe
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position).strTitle);
+        holder.mContentView.setText(Double.toString(mValues.get(position).dblBalance));
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +45,7 @@ public class MyReportRecyclerViewAdapter extends RecyclerView.Adapter<MyReportRe
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
+                    mListener.onReportFragmentInteraction(holder.mItem);
                 }
             }
         });
@@ -60,7 +60,7 @@ public class MyReportRecyclerViewAdapter extends RecyclerView.Adapter<MyReportRe
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public ReportContent.ReportItem mItem;
 
         public ViewHolder(View view) {
             super(view);

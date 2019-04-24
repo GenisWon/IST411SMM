@@ -8,11 +8,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.example.savememoney.dummy.DummyContent;
 import com.example.savememoney.ui.accountview.ListFragment;
 import com.example.savememoney.ui.accountview.Accounts.AccountContent;
+import com.example.savememoney.ui.budgetfragment.BudgetContent;
+import com.example.savememoney.ui.reportfragment.ReportContent;
 
-public class AccountView extends AppCompatActivity implements ListFragment.OnListFragmentInteractionListener, BudgetFragment.OnListFragmentInteractionListener, ReportFragment.OnListFragmentInteractionListener {
+public class AccountView extends AppCompatActivity implements ListFragment.OnListFragmentInteractionListener, BudgetFragment.OnBudgetFragmentInteractionListener, ReportFragment.OnReportFragmentInteractionListener {
 
     private TextView mTextMessage;
 
@@ -59,7 +60,12 @@ public class AccountView extends AppCompatActivity implements ListFragment.OnLis
 
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+    public void onReportFragmentInteraction(ReportContent.ReportItem item) {
+
+    }
+
+    @Override
+    public void OnBudgetFragmentInteractionListener(BudgetContent.BudgetItem item) {
 
     }
 }
