@@ -26,7 +26,7 @@ public class BudgetContent {
         ITEM_MAP.put(item.intID, item);
     }
 
-    private static BudgetItem createBudgetItem(int position, String strTitle, double dblBalance)
+    public static BudgetItem createBudgetItem(int position, String strTitle, double dblBalance)
     {
         return new BudgetItem(position, strTitle, dblBalance);
     }

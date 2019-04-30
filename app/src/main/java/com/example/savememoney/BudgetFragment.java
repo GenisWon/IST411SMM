@@ -26,12 +26,14 @@ public class BudgetFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnBudgetFragmentInteractionListener mListener;
+    public MyBudgetRecyclerViewAdapter recyclerViewAdapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
     public BudgetFragment() {
+
     }
 
     // TODO: Customize parameter initialization
@@ -47,7 +49,7 @@ public class BudgetFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        recyclerViewAdapter = new MyBudgetRecyclerViewAdapter();
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -67,7 +69,8 @@ public class BudgetFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyBudgetRecyclerViewAdapter(BudgetContent.BudgetList, mListener));
+            recyclerViewAdapter = new MyBudgetRecyclerViewAdapter(BudgetContent.BudgetList, mListener);
+            recyclerView.setAdapter(recyclerViewAdapter);
         }
         return view;
     }

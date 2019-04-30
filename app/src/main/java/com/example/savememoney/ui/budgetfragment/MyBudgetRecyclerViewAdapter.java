@@ -1,5 +1,6 @@
 package com.example.savememoney.ui.budgetfragment;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +11,12 @@ import com.example.savememoney.BudgetFragment.OnBudgetFragmentInteractionListene
 import com.example.savememoney.R;
 import com.example.savememoney.ui.budgetfragment.BudgetContent.BudgetItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link BudgetItem} and makes a call to the
  * specified {@link OnBudgetFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
  */
 public class MyBudgetRecyclerViewAdapter extends RecyclerView.Adapter<MyBudgetRecyclerViewAdapter.ViewHolder> {
 
@@ -25,6 +26,8 @@ public class MyBudgetRecyclerViewAdapter extends RecyclerView.Adapter<MyBudgetRe
     public MyBudgetRecyclerViewAdapter(List<BudgetItem> items, OnBudgetFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
+
+
     }
 
     @Override
@@ -50,6 +53,7 @@ public class MyBudgetRecyclerViewAdapter extends RecyclerView.Adapter<MyBudgetRe
                 }
             }
         });
+        
     }
 
     @Override
